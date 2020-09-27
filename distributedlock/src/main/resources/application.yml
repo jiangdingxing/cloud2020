@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: distributed-lock
+  datasource:
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource  #德鲁伊数据源
+    driver-class-name: org.gjt.mm.mysql.Driver   #mysql驱动包
+    url: jdbc:mysql://localhost:3306/pro?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8
+  redis:
+    host: 127.0.0.1  #服务器地址
+    password:  #默认为空
+    port: 6379  #redis端口号
+    database: 0  #Redis数据库索引  默认为0
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true  #开启驼峰命名转换
+    auto-mapping-behavior: full
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  #输出日志
+  mapper-locations: classpath*:mapper/*Mapper.xml
+  type-aliases-package: com.atdingxing.distributedlock.entity  #实体类别名

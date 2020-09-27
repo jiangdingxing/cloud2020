@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atdingxing.distributedlock.mapper.OrderMapper">
+
+    <select id="getOrderList" resultType="com.atdingxing.distributedlock.entity.Order">
+        select * from `order`
+    </select>
+
+    <insert id="addOrder" parameterType="com.atdingxing.distributedlock.entity.Order">
+        insert into `order` (user_id,pid) values(#{userId},#{pid});
+    </insert>
+</mapper>
