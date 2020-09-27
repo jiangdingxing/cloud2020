@@ -86,6 +86,7 @@ public class OrderController {
          * 然而由于这是两条Redis命令，不具有原子性，如果程序在执行完setnx()之后突然崩溃，导致锁没有设置过期时间。
          * 那么将会发生死锁。网上之所以有人这样实现，是因为低版本的jedis并不支持多参数的set()方法。
          *  2. 不能出现死锁
+         *  redlock 红锁算法
          */
      /*   String randomStr = UUID.randomUUID().toString();
         Boolean redisLock = redisTemplate.boundValueOps(id).setIfAbsent(randomStr, 30, TimeUnit.SECONDS);
