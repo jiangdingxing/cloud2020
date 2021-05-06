@@ -19,6 +19,7 @@
         <module>cloud-provider-payment8004</module>
         <module>cloud-consumerzk-order80</module>
         <module>distributedlock</module>
+        <module>lambda-practice</module>
     </modules>
 
 
