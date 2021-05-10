@@ -25,7 +25,7 @@ import java.util.function.Supplier;
  */
 public class StudyLambda2 {
 
-    //消费型Consumer
+    //消费型Consumer  （有来无回）
     //需求：传入一个参数做业务处理，不需要返回值
     public void happy(double money, Consumer<Double> con) {
         con.accept(money);
@@ -36,7 +36,7 @@ public class StudyLambda2 {
         happy(1000, (m) -> System.out.println("无忌每次去洗脚，每次消费" + m + "元"));
     }
 
-    //供给型接口 Supplier
+    //供给型接口 Supplier （无来有回）
     //需求：产生指定数量的整数，放到集合中，返回集合
     public List<Integer> getNumList(int num, Supplier<Integer> sp) {
         List<Integer> result = new ArrayList<>();
@@ -52,7 +52,7 @@ public class StudyLambda2 {
         numList.forEach(System.out::println);
     }
 
-    //函数型接口 Function
+    //函数型接口 Function （有来有回）
     //需求：传入一个字符串，返回一个字符串
     public String strHandle(String str, Function<String, String> fun) {
         return fun.apply(str);
@@ -64,7 +64,7 @@ public class StudyLambda2 {
         System.out.printf(result);
     }
 
-    //断言型接口 Predicate
+    //断言型接口 Predicate    传入一个参数返回一个boolean值
     //需求：对比数字大小返回boolean值
     public boolean compare(Integer num, Predicate<Integer> pre) {
         return pre.test(num);
